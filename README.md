@@ -24,5 +24,17 @@ s = os.str();
 scoreLabel->setString(s);
 ```
 
+不容易啊，找到一个可以格式化输出的方法，使用cocos提供的__String类，如果采用cocos提供的类的话，最好用create的方式，区别于c++本身的new
+```cpp
+    static __String* create(const std::string& str);
+    static __String* createWithFormat(const char* format, ...) CC_FORMAT_PRINTF(1, 2);
+    static __String* createWithData(const unsigned char* pData, size_t nLen);
+    static __String* createWithContentsOfFile(const std::string& filename);
+```
+这样的话，用下面的方式，哎，终于可以格式化输出了，曲线救国啊
+```cpp
+auto ss = __String::createWithFormat("score : %d", score);
+scoreLabel->setString(ss->getCString());
+```
 先这样，关于游戏的内容等有空了再写。
 

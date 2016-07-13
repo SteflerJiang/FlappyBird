@@ -145,11 +145,8 @@ void GameLayer::update(float dt)
 	{
 		score++;
 		CCLOG("score = %d", score);
-		std::string s = "score : ";
-		std::ostringstream os;
-		os << s << score;
-		s = os.str();
-		scoreLabel->setString(s);
+		auto ss = __String::createWithFormat("score : %d", score);
+		scoreLabel->setString(ss->getCString());
 		gotScore = false;
 	}
 
