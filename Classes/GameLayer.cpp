@@ -20,7 +20,7 @@ bool GameLayer::init()
 
 	//设置属性
 	animation->setRestoreOriginalFrame(true); //还原第一帧
-	animation->setDelayPerUnit(1.0 / 3.0);     //单位帧间隔
+	animation->setDelayPerUnit(1.0 / 10.0);     //单位帧间隔
 	animation->setLoops(-1);                  //-1无限循环
 	animate = Animate::create(animation);
 	animate->retain();
@@ -98,7 +98,7 @@ void GameLayer::start()
 	upIndex = 0;
 	bird->runAction(animate);
 	scheduleUpdate();
-
+	
 	auto menu = this->getChildByName("menu");
 	if(menu)
 		menu->removeFromParent();
@@ -180,8 +180,6 @@ void GameLayer::update(float dt)
 		menu->setPosition(Vec2::ZERO);
 		this->addChild(menu, 200, "menu");
 	}
-
-	
 }
 
 bool GameLayer::collision()

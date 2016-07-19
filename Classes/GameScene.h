@@ -15,7 +15,8 @@ public:
 	CREATE_FUNC(GameScene);
 
 public:
-
+	void setPhyWorld(PhysicsWorld* world) {m_world = world;}
+	PhysicsWorld* m_world;
 };
 
 #endif // __GAME_SCENE_H__

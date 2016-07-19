@@ -72,6 +72,14 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
+	auto snow = ParticleRain::create();
+	snow->setTexture(Director::getInstance()->getTextureCache()->addImage("CloseNormal.png"));
+	snow->setPosition(450, 800);
+	snow->setTotalParticles(130);
+	snow->setLife(5.0f);
+	addChild(snow);
+
+
     return true;
 }
 
